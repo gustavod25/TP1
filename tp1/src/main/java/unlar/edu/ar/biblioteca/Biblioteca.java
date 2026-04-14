@@ -1,6 +1,10 @@
 package unlar.edu.ar.biblioteca;
 
-import unlar.edu.ar.objets.Estudiante;
+import java.time.LocalDate;
+import java.util.*;
+
+import unlar.edu.ar.exception.*;
+import unlar.edu.ar.objets.*;
 
 public class Biblioteca {
     private List<Libro> catalogo = new Arraylist<>();// es una lista de libros
@@ -14,5 +18,38 @@ public class Biblioteca {
     public void agregarEstudiante(Estudiante e) {
         estudiantes.put(e.getLegajo(), e);
     }// usamos el numero de legajo para guardar al pibe
+
+    public void registrarPrestamo(String legajo, String isbn)
+            throws EstudianteNoEncontradoException, LibroNoDisponibleException,
+            LimitePrestamosExcedidoException {
+
+        Estudiante est = estudiantes.get(legajo);
+        if (est == null)
+            throw new EstudianteNoEncontradoException("Legajo " + legajo + " no existe.");
+
+        Libro lib = null;
+        for (Libro l : catalogo) {
+            if (l.getIsbn().equals(isbn)) {
+                lib = l;
+                break;
+            }
+        }
+        if (lib == null || !lib.isDisponible()) {
+            throw new LibroNoDisponibleException("No disponible.");
+        }
+
+        long contador = 0;
+        for (Prestamo p : prestamosActivos) {
+            if (p.getEstudiante().getLegajo().equals(legajo))
+                contador++;
+        }
+        if (contador >= 3) {
+            throw new LimitePrestamosExcedidoException("Máximo 3 libros.");
+        }
+
+        prestamosActivos.add(new Prestamo(lib, est, LocalDate.now()));
+        lib.setDisponible(false);
+
+    }
 
 }

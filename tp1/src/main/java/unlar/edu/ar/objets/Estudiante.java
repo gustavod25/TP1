@@ -26,9 +26,6 @@ public class Estudiante {
         return email;
     }
 
-    public String getLegajo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLegajo'");
-    }
+   
 
 }

@@ -9,9 +9,11 @@ private Estudiante estudiante;
 
 private LocalDate fechaPrestamo;
 
-public Prestamo(Libro libro, Estudiante estudiante, LocalDate fechaPrestamo) {
-    this.libro = libro;
-    this.estudiante = estudiante;
+
+
+public Prestamo(Libro l, Estudiante e, LocalDate fechaPrestamo) {
+    this.libro = l;
+    this.estudiante = e;
     this.fechaPrestamo = fechaPrestamo;
 }
 
@@ -30,7 +32,12 @@ public LocalDate getFechaPrestamo() {
 
 
 
-
+@Override
+public boolean equals(Object o) {
+Prestamo otro = (Prestamo) o;
+return this.libro.getIsbn().equals(otro.libro.getIsbn()) &&
+this.estudiante.getLegajo().equals(otro.estudiante.getLegajo());
+}
 
 
 }
