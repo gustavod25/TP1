@@ -50,6 +50,22 @@ public class Biblioteca {
         prestamosActivos.add(new Prestamo(lib, est, LocalDate.now()));
         lib.setDisponible(false);
 
+    public double calcularMulta(int diasRetraso, double valorLibro) {
+
+        if (diasRetraso <= 0) return 0;
+        if (diasRetraso > 30) return calcularMulta(30, valorLibro);
+        return (valorLibro * 0.01) + calcularMulta(diasRetraso - 1, valorLibro);
     }
 
+    public void buscarLibro(String parteTitulo) {
+        System.out.println("\nResultados para: " + parteTitulo);
+        for (Libro l : catalogo) {
+            if (l.getTitulo().toLowerCase().contains(parteTitulo.toLowerCase())) {
+                System.out.println("- " + l.toString());
+            }
+        }
+    }
+
+
+    }
 }
