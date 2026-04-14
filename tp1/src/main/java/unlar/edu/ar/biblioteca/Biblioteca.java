@@ -57,15 +57,17 @@ public class Biblioteca {
         return (valorLibro * 0.01) + calcularMulta(diasRetraso - 1, valorLibro);
     }
 
-    public void buscarLibro(String parteTitulo) {
+
+   public void buscarLibro(String parteTitulo) {
         System.out.println("\nResultados para: " + parteTitulo);
         for (Libro l : catalogo) {
             if (l.getTitulo().toLowerCase().contains(parteTitulo.toLowerCase())) {
                 System.out.println("- " + l.toString());
             }
         }
-    }
+    }  
 
 
     }
+
 }

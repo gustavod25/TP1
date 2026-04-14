@@ -1,22 +1,46 @@
 package unlar.edu.ar;
 
 import unlar.edu.ar.biblioteca.Biblioteca;
-import unlar.edu.ar.exception.LibroNoDisponibleException;
+import unlar.edu.ar.exception.*;
+import unlar.edu.ar.objets.*;
 
 public class App {
     public static void main(String[] args) {
         Biblioteca sistema = new Biblioteca();
 
+        sistema.agregarLibro(new Libro("101", "Java", 2021));
+        sistema.agregarLibro(new Libro("102", "Estructuras de Datos", "NN", 2019));
+        sistema.agregarLibro(new Libro("103", "Matematicas", "cespedes", 2008));
+        sistema.agregarLibro(new Libro("104", "martin fierro", "fierro martin", 1994));
+        sistema.agregarLibro(new Libro("105", "Algoritmos", "SI", 2011));
+
+        sistema.agregarEstudiante(new Estudiante("L001", "Juan Perez", "Sistemas", "juan@u.edu"));
+        sistema.agregarEstudiante(new Estudiante("L002", "Ana Lopez", "Sistemas", "ana@u.edu"));
+        sistema.agregarEstudiante(new Estudiante("L003", "Luis Gomez", "Sistemas", "luis@u.edu"));
+
+        System.out.println("=== SISTEMA DE GESTION BIBLIOTECARIA UNLaR ===");
+
         try {
-            // 1. Aquí pones el código "peligroso" (el que puede lanzar exceptions)
             sistema.registrarPrestamo("L001", "101");
         } catch (LibroNoDisponibleException e) {
-            // 2. Si ocurre ESE error específico, el programa salta aquí
             System.out.println("Aviso: El libro ya está ocupado.");
         } catch (Exception e) {
-            // 3. Este es el 'salvavidas' para cualquier otro error no previsto
             System.out.println("Error genérico: " + e.getMessage());
         }
+        try {
+            System.out.println("\n--- Prueba: Libro no disponible ---");
+            sistema.registrarPrestamo("L002", "101");
+        } catch (LibroNoDisponibleException e) {
+            System.out.println("Capturada: " + e.getMessage());
+        } catch (Exception e) {
+            /* ... */ }
+
+        sistema.buscarLibro("Clean");
+
+        System.out.println("\n--- Prueba de Multa (15 días de retraso) ---");
+        double multaTotal = sistema.calcularMulta(15, 5000.0);
+        System.out.println("Valor del libro: $5000");
+        System.out.println("Monto de la multa: $" + multaTotal);
 
     }
 

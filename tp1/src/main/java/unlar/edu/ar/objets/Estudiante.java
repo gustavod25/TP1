@@ -26,6 +26,4 @@ public class Estudiante {
         return email;
     }
 
-   
-
 }

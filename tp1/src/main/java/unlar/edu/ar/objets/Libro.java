@@ -17,20 +17,40 @@ public class Libro {
         return isbn;
     }
 
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
     public String getTitulo() {
         return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getAutor() {
         return autor;
     }
 
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
     public int getAnio() {
         return anio;
     }
 
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
     public boolean isDisponible() {
         return disponible;
+    }
+
+    public void setDisponible(boolean d) {
+        this.disponible = d;
     }
 
 }
