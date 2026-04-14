@@ -27,4 +27,13 @@ public class Prestamo {
         return fechaPrestamo;
     }
 
+    @Override
+    public int hashCode() {
+        return (libro.getIsbn() + estudiante.getLegajo()).hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Prestamo: " + libro.getTitulo() + " a " + estudiante.getLegajo();
+    }
 }

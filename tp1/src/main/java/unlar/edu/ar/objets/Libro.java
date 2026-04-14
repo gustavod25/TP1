@@ -53,4 +53,8 @@ public class Libro {
         this.disponible = d;
     }
 
+    @Override
+    public String toString() {
+        return "Libro: " + titulo + " [" + isbn + "] - " + (disponible ? "Disponible" : "Prestado");
+    }
 }

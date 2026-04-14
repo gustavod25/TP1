@@ -26,4 +26,8 @@ public class Estudiante {
         return email;
     }
 
+    @Override
+    public String toString() {
+        return "Estudiante: " + nombre + " (Legajo: " + legajo + ")";
+    }
 }
