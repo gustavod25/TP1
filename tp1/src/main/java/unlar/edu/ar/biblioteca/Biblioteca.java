@@ -7,9 +7,9 @@ import unlar.edu.ar.exception.*;
 import unlar.edu.ar.objets.*;
 
 public class Biblioteca {
-    private List<Libro> catalogo = new Arraylist<>();// es una lista de libros
-    private Map<String, estudiante> estudiantes = new HashMap<>();// obtenemos el hash del estudiante
-    private set<Prestamo> prestamosActivos = new HashSet<>();// hash del pretamo
+    private List<Libro> catalogo = new ArrayList<>();// es una lista de libros
+    private Map<String, Estudiante> estudiantes = new HashMap<>();// obtenemos el hash del estudiante
+    private Set<Prestamo> prestamosActivos = new HashSet<>();// hash del pretamo
 
     public void agregarLibro(Libro l) {
         catalogo.add(l);
@@ -49,25 +49,24 @@ public class Biblioteca {
 
         prestamosActivos.add(new Prestamo(lib, est, LocalDate.now()));
         lib.setDisponible(false);
+    }
 
     public double calcularMulta(int diasRetraso, double valorLibro) {
 
-        if (diasRetraso <= 0) return 0;
-        if (diasRetraso > 30) return calcularMulta(30, valorLibro);
+        if (diasRetraso <= 0)
+            return 0;
+        if (diasRetraso > 30)
+            return calcularMulta(30, valorLibro);
         return (valorLibro * 0.01) + calcularMulta(diasRetraso - 1, valorLibro);
     }
 
-
-   public void buscarLibro(String parteTitulo) {
+    public void buscarLibro(String parteTitulo) {
         System.out.println("\nResultados para: " + parteTitulo);
         for (Libro l : catalogo) {
             if (l.getTitulo().toLowerCase().contains(parteTitulo.toLowerCase())) {
                 System.out.println("- " + l.toString());
             }
         }
-    }  
-
-
     }
 
 }

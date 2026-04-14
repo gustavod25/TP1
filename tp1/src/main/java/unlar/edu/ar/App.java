@@ -8,11 +8,11 @@ public class App {
     public static void main(String[] args) {
         Biblioteca sistema = new Biblioteca();
 
-        sistema.agregarLibro(new Libro("101", "Java", 2021));
-        sistema.agregarLibro(new Libro("102", "Estructuras de Datos", "NN", 2019));
-        sistema.agregarLibro(new Libro("103", "Matematicas", "cespedes", 2008));
-        sistema.agregarLibro(new Libro("104", "martin fierro", "fierro martin", 1994));
-        sistema.agregarLibro(new Libro("105", "Algoritmos", "SI", 2011));
+        sistema.agregarLibro(new Libro("101", "Java", "JAlvarez", 2021, true));
+        sistema.agregarLibro(new Libro("102", "Estructuras de Datos", "NN", 2019, true));
+        sistema.agregarLibro(new Libro("103", "Matematicas", "Cespedes", 2008, true));
+        sistema.agregarLibro(new Libro("104", "martin fierro", "fierro martin", 1994, true));
+        sistema.agregarLibro(new Libro("105", "Algoritmos", "Messi", 2011, true));
 
         sistema.agregarEstudiante(new Estudiante("L001", "Juan Perez", "Sistemas", "juan@u.edu"));
         sistema.agregarEstudiante(new Estudiante("L002", "Ana Lopez", "Sistemas", "ana@u.edu"));
