@@ -4,7 +4,7 @@ Con este sistema buscamos aprender mediante la aplicación práctica los Pilares
 
 ---
 
-Arquitectura Lógica y Operativa
+### Arquitectura Lógica y Operativa.
 Para que el software sea eficiente, se seleccionaron estructuras específicas de Java según la necesidad de acceso :
 - Inventario Dinámico (ArrayList): Administra el catálogo bibliográfico permitiendo un crecimiento flexible y recorridos secuenciales para búsquedas por título .
 - Acceso Instantáneo de Usuarios (HashMap): Utiliza el legajo estudiantil como clave única para realizar búsquedas directas sin necesidad de iterar sobre toda la base de datos . 
@@ -14,7 +14,7 @@ Para que el software sea eficiente, se seleccionaron estructuras específicas de
 - Penalización Recursiva: Se implementó un algoritmo de recursión para calcular multas por morosidad, sumando un 1% diario con un tope de seguridad de 30 iteraciones para proteger la memoria del sistema . 
  ---
  
-Manejo de Errores
+### Manejo de Errores.
 El software implementa un diseño de excepciones para comunicar eventos específicos del dominio de la biblioteca :
 - LibroNoDisponibleException: Activada si el ejemplar ya está bajo préstamo.
 - EstudianteNoEncontradoException: Disparada si el legajo no figura en el padrón.
