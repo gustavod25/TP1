@@ -1,5 +1,5 @@
 ## SISTEMA DE GESTION DE BIBLIOTECA UNIVERSITARIA
-
+Trabajo realizado para la catedra de PROGRAMACION 3 por los estudiantes Rivero Sanagua Eduardo Javier - EISI 1437 y Fuentes Tobarez Gustavo David -EISI1000 .
 Con este sistema buscamos aprender mediante la aplicación práctica los Pilares de la Programación Orientada a Objetos (POO) con el lenguaje JAVA
 
 ---
@@ -19,3 +19,4 @@ El software implementa un diseño de excepciones para comunicar eventos específ
 - LibroNoDisponibleException: Activada si el ejemplar ya está bajo préstamo.
 - EstudianteNoEncontradoException: Disparada si el legajo no figura en el padrón.
 - LimitePrestamosExcedidoException: Notificada cuando un socio intenta superar su capacidad de retiro. 
+
