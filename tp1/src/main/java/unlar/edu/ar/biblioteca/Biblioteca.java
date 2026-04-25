@@ -19,6 +19,14 @@ public class Biblioteca {
         estudiantes.put(e.getLegajo(), e);
     }// usamos el numero de legajo para guardar al pibe
 
+    public int getCantidadLibros() {
+        return catalogo.size();
+    }
+
+    public int getCantidadEstudiantes() {
+        return estudiantes.size();
+    }
+
     public void registrarPrestamo(String legajo, String isbn)
             throws EstudianteNoEncontradoException, LibroNoDisponibleException,
             LimitePrestamosExcedidoException {
